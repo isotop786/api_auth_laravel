@@ -24,3 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register',[AuthController::class,'register'])->name('api.register');
 Route::post('/login',[AuthController::class,'login'])->name('api.login');
 Route::post('/logout',[AuthController::class,'logout'])->name('api.logout');
+
+
+// user profile route 
+Route::post('/user',[AuthController::class,'user'])->middleware('auth:sanctum')
+->name('api.user');
